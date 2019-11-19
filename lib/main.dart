@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial_sample/Email.dart';
+import 'package:flutter_tutorial_sample/RaisedButtonExample.dart';
 
 void main() => runApp(MyFormApp());
 
@@ -16,95 +18,28 @@ class MyFormApp extends StatelessWidget {
   }
 }
 
-class MyForm extends StatefulWidget {
-  @override
-  _MyFormState createState() => _MyFormState();
-}
-
-class _MyFormState extends State<MyForm> {
-  final _formKey = GlobalKey<FormState>();
-  FocusNode focusNode;
-
-  var emailController = TextEditingController();
-  var pwController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-
-    focusNode = FocusNode();
-    emailController.addListener(_emailChanged);
-    pwController.addListener(_pwChanged);
-  }
-
-  _emailChanged() {
-    print("email value changed: ${emailController.text}");
-  }
-
-  _pwChanged() {
-    print("password value changed: ${pwController.text}");
-  }
-
-  @override
-  void dispose() {
-    focusNode.dispose();
-    emailController.dispose();
-    pwController.dispose();
-
-    super.dispose();
-  }
-
+class MyForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: <Widget>[
-          TextFormField(
-            controller: emailController,
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter anything.';
-              }
-            },
-            decoration: InputDecoration(
-                icon: Icon(Icons.email),
-                hintText: 'xxx@email.com',
-                labelText: 'email'),
-            autofocus: true,
-          ),
-          TextFormField(
-            controller: pwController,
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter anything here too.';
-              }
-            },
-            decoration: InputDecoration(
-                icon: Icon(Icons.security),
-                hintText: 'password',
-                labelText: 'password'),
-            obscureText: true,
-            focusNode: focusNode,
-          ),
-          RaisedButton(
-            child: Text('Button'),
-            onPressed: () {
-              if (focusNode.hasFocus) {
-                if (_formKey.currentState.validate()) {
-                  Scaffold.of(context).showSnackBar(SnackBar(
-                    content: Text('Wow form done!!!'),
-                  ));
-                }
-              } else {
-                FocusScope.of(context).requestFocus(focusNode);
-              }
-
-              print("email value: ${emailController.text}");
-            },
-          )
-        ],
-      ),
-    );
+    return Column(children: <Widget>[
+      _buildExpand(Text("Go Text Form Field Example"), context, EmailWidget()),
+      _buildExpand(Text("Go Raised Button Example"), context, RaisedButtonExample()),
+    ]);
   }
+
+  Expanded _buildExpand(Text text, BuildContext context, Widget target) =>
+      Expanded(
+        child: Padding(
+            padding: const EdgeInsets.only(top: 12, left: 24, right: 24),
+            child: RaisedButton(
+                child: text,
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => target));
+                },
+              color: Colors.cyanAccent,
+              splashColor: Colors.amber,
+              hoverColor: Colors.pink,
+                )),
+      );
 }
