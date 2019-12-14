@@ -26,6 +26,7 @@ class MyForm extends StatelessWidget {
       _buildExpand(Text("Go Text Form Field Example"), context, EmailWidget()),
       _buildExpand(Text("Go Raised Button Example"), context, RaisedButtonExample()),
       _buildExpand(Text("Go Switch Example"), context, Switches()),
+
     ]);
   }
 
