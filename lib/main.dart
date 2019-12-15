@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutorial_sample/Email.dart';
-import 'package:flutter_tutorial_sample/RaisedButtonExample.dart';
-import 'package:flutter_tutorial_sample/switch.dart';
+import 'package:flutter_tutorial_sample/page/DragAndDrop.dart';
+import 'package:flutter_tutorial_sample/page/Email.dart';
+import 'package:flutter_tutorial_sample/page/RaisedButtonExample.dart';
+import 'package:flutter_tutorial_sample/page/switch.dart';
 
 void main() => runApp(MyFormApp());
 
@@ -26,7 +27,7 @@ class MyForm extends StatelessWidget {
       _buildExpand(Text("Go Text Form Field Example"), context, EmailWidget()),
       _buildExpand(Text("Go Raised Button Example"), context, RaisedButtonExample()),
       _buildExpand(Text("Go Switch Example"), context, Switches()),
-
+      _buildExpand(Text("Go Drag And Drop Example"), context, DragAndDrop()),
     ]);
   }
 
