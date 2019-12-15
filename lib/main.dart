@@ -23,25 +23,27 @@ class MyFormApp extends StatelessWidget {
 class MyForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      _buildExpand(Text("Go Text Form Field Example"), context, EmailWidget()),
-      _buildExpand(Text("Go Raised Button Example"), context, RaisedButtonExample()),
-      _buildExpand(Text("Go Switch Example"), context, Switches()),
-      _buildExpand(Text("Go Drag And Drop Example"), context, DragAndDrop()),
-    ]);
+    return Column(
+      children: <Widget>[
+        _buildExpand(Text("Go Text Form Field Example"), context, EmailWidget()),
+        _buildExpand(Text("Go Raised Button Example"), context, RaisedButtonExample()),
+        _buildExpand(Text("Go Switch Example"), context, Switches()),
+        _buildExpand(Text("Go Drag And Drop Example"), context, DragAndDrop()),
+      ],
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+    );
   }
 
-  Expanded _buildExpand(Text text, BuildContext context, Widget target) => Expanded(
-        child: Padding(
-            padding: const EdgeInsets.only(top: 12, left: 24, right: 24),
-            child: RaisedButton(
-              child: text,
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => target));
-              },
-              color: Colors.cyanAccent,
-              splashColor: Colors.amber,
-              hoverColor: Colors.pink,
-            )),
+  Widget _buildExpand(Text text, BuildContext context, Widget target) => Padding(
+        padding: EdgeInsets.all(8),
+        child: RaisedButton(
+          child: text,
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => target));
+          },
+          color: Colors.purple[200],
+          splashColor: Colors.amber,
+          hoverColor: Colors.pink,
+        ),
       );
 }
