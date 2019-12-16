@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tutorial_sample/page/Dio/DioPage.dart';
 import 'package:flutter_tutorial_sample/page/DragAndDrop.dart';
 import 'package:flutter_tutorial_sample/page/Email.dart';
+import 'package:flutter_tutorial_sample/page/Json.dart';
 import 'package:flutter_tutorial_sample/page/RaisedButtonExample.dart';
 import 'package:flutter_tutorial_sample/page/switch.dart';
 
@@ -31,6 +32,7 @@ class MyForm extends StatelessWidget {
         _buildExpand(Text("Go Switch Example"), context, Switches()),
         _buildExpand(Text("Go Drag And Drop Example"), context, DragAndDrop()),
         _buildExpand(Text("Go Dio Example"), context, Dio()),
+        _buildExpand(Text("Go Json Example"), context, Json()),
       ],
       crossAxisAlignment: CrossAxisAlignment.stretch,
     );
