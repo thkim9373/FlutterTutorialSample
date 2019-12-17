@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tutorial_sample/page/Dio/DioPage.dart';
 import 'package:flutter_tutorial_sample/page/DragAndDrop.dart';
 import 'package:flutter_tutorial_sample/page/Email.dart';
-import 'package:flutter_tutorial_sample/page/Json.dart';
+import 'package:flutter_tutorial_sample/page/json/Json.dart';
 import 'package:flutter_tutorial_sample/page/RaisedButtonExample.dart';
 import 'package:flutter_tutorial_sample/page/switch.dart';
 
